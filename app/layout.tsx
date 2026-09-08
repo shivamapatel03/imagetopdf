@@ -70,6 +70,16 @@ export const metadata: Metadata = {
   verification: {
     google: 't2KGnXYnTNGoMDiZ3CK3bigwEoHTU_wjMQYENqWw8BU',
   },
+  icons: {
+    icon: [
+      { url: '/icon.png?v=4', type: 'image/png' },
+      { url: '/favicon.ico?v=4', sizes: '48x48' },
+    ],
+    shortcut: '/favicon.ico?v=4',
+    apple: [
+      { url: '/icon.png?v=4', sizes: '180x180', type: 'image/png' },
+    ],
+  },
 };
 
 import { AuthProvider } from '@/components/providers/AuthProvider';

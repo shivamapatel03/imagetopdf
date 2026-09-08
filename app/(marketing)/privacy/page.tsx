@@ -77,7 +77,7 @@ export default function PrivacyPage() {
         <section className="space-y-3">
           <h2 className="text-xl font-bold text-black">5. Contacting Us</h2>
           <p>
-            If you have questions regarding this Privacy Policy, please contact our Data Protection Officer at privacy@imagetopdf.online.
+            If you have questions regarding this Privacy Policy, please contact our Help Center on Instagram <a href="https://instagram.com/imagetopdf.online" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#4D4AE8] underline">@imagetopdf.online</a>.
           </p>
         </section>
       </div>

@@ -21,7 +21,7 @@ export const AdBanner: React.FC<AdBannerProps> = ({
   className = '',
   responsive = true,
 }) => {
-  const adsenseClientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
+  const adsenseClientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-6649084210449054';
   const isConfigured = Boolean(adsenseClientId && slot);
 
   useEffect(() => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ConverterApp } from '@/components/converter/ConverterApp';
 import { AdBanner } from '@/components/ads/AdBanner';
 import { Accordion } from '@/components/ui/Accordion';
@@ -124,7 +125,19 @@ export default function HomePage() {
           />
         </div>
 
-        {/* Clean Ad Slot 1 (Below the fold) */}
+        {/* Workflow Showcase Illustration (Above Ad) */}
+        <div className="pt-6 sm:pt-10 pb-2 w-full max-w-5xl mx-auto px-2 sm:px-4 flex justify-center">
+          <Image
+            src="/image.png"
+            alt="Image to PDF conversion workflow - photos into organized PDF document"
+            width={1600}
+            height={500}
+            priority
+            className="w-full max-w-4xl h-auto object-contain mx-auto select-none pointer-events-none"
+          />
+        </div>
+
+        {/* Clean Ad Slot 1 */}
         <div className="pt-6 w-full max-w-3xl mx-auto overflow-hidden">
           <AdBanner slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_BANNER} format="auto" />
         </div>

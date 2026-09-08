@@ -47,6 +47,8 @@ export const ConverterApp: React.FC<ConverterAppProps> = ({
     orientation: initialOrientation,
   });
   const [isConverting, setIsConverting] = useState(false);
+  const [isBuffering, setIsBuffering] = useState(false);
+  const [bufferStatus, setBufferStatus] = useState<string>('');
   const [progress, setProgress] = useState<ConversionProgress | null>(null);
   const [result, setResult] = useState<ConversionResult | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -54,7 +56,11 @@ export const ConverterApp: React.FC<ConverterAppProps> = ({
   // Handle incoming files
   const handleFilesSelected = async (newFiles: File[]) => {
     setErrorMessage(null);
+    setIsBuffering(true);
+    setBufferStatus(`Buffering ${newFiles.length} ${newFiles.length === 1 ? 'photo' : 'photos'}...`);
+
     const loadedItems: ImageFileItem[] = [];
+    let count = 0;
 
     for (const file of newFiles) {
       const previewUrl = URL.createObjectURL(file);
@@ -89,12 +95,20 @@ export const ConverterApp: React.FC<ConverterAppProps> = ({
         };
         img.src = previewUrl;
       });
+
+      count++;
+      if (newFiles.length > 1) {
+        setBufferStatus(`Processing photo ${count} of ${newFiles.length}...`);
+      }
     }
 
     if (loadedItems.length > 0) {
+      setBufferStatus('Opening Studio Workspace...');
       setStoredFiles(loadedItems);
       setStoredSettings(settings);
       router.push('/convert');
+    } else {
+      setIsBuffering(false);
     }
   };
 
@@ -172,6 +186,8 @@ export const ConverterApp: React.FC<ConverterAppProps> = ({
         <UploadZone
           onFilesSelected={handleFilesSelected}
           acceptedFormats={acceptedFormats}
+          isLoading={isBuffering}
+          loadingMessage={bufferStatus}
         />
       ) : (
         /* 4. Active Workspace: 2-Column Layout (Left: Sorter Gallery, Right: Sticky PDF Settings Sidebar) */
@@ -186,6 +202,8 @@ export const ConverterApp: React.FC<ConverterAppProps> = ({
                 isCompact
                 onFilesSelected={handleFilesSelected}
                 acceptedFormats={acceptedFormats}
+                isLoading={isBuffering}
+                loadingMessage={bufferStatus}
               />
             </div>
 

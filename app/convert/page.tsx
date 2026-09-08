@@ -30,6 +30,7 @@ import {
   PanelRightClose,
   PanelRightOpen,
   X,
+  Loader2,
 } from 'lucide-react';
 
 const DEFAULT_SETTINGS: PdfSettings = {
@@ -47,6 +48,8 @@ export default function ConvertStudioPage() {
   const [settings, setSettings] = useState<PdfSettings>(DEFAULT_SETTINGS);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isConverting, setIsConverting] = useState(false);
+  const [isBuffering, setIsBuffering] = useState(false);
+  const [bufferMessage, setBufferMessage] = useState<string>('');
   const [progress, setProgress] = useState<ConversionProgress | null>(null);
   const [result, setResult] = useState<ConversionResult | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -70,7 +73,11 @@ export default function ConvertStudioPage() {
 
   const handleFilesSelected = async (newFiles: File[]) => {
     setErrorMessage(null);
+    setIsBuffering(true);
+    setBufferMessage(`Buffering ${newFiles.length} ${newFiles.length === 1 ? 'photo' : 'photos'}...`);
+
     const loadedItems: ImageFileItem[] = [];
+    let count = 0;
 
     for (const file of newFiles) {
       const previewUrl = URL.createObjectURL(file);
@@ -104,11 +111,17 @@ export default function ConvertStudioPage() {
         };
         img.src = previewUrl;
       });
+
+      count++;
+      if (newFiles.length > 1) {
+        setBufferMessage(`Processing photo ${count} of ${newFiles.length}...`);
+      }
     }
 
     const updated = [...images, ...loadedItems];
     setImages(updated);
     setStoredFiles(updated);
+    setIsBuffering(false);
   };
 
   const handleRotate = (id: string) => {
@@ -203,6 +216,8 @@ export default function ConvertStudioPage() {
               isCompact
               onFilesSelected={handleFilesSelected}
               acceptedFormats={['.jpg', '.jpeg', '.png', '.webp']}
+              isLoading={isBuffering}
+              loadingMessage={bufferMessage}
             />
 
             {images.length > 0 && !result && !isConverting && (
@@ -250,7 +265,11 @@ export default function ConvertStudioPage() {
         ) : images.length === 0 ? (
           /* 3. Empty Fallback */
           <div className="max-w-xl mx-auto pt-8">
-            <UploadZone onFilesSelected={handleFilesSelected} />
+            <UploadZone
+              onFilesSelected={handleFilesSelected}
+              isLoading={isBuffering}
+              loadingMessage={bufferMessage}
+            />
           </div>
         ) : (
           /* 4. FOCUSED STUDIO WORKSPACE: GALLERY + COLLAPSIBLE SIDEBAR */
@@ -358,6 +377,29 @@ export default function ConvertStudioPage() {
                 isConverting={isConverting}
                 onClose={() => setIsSidebarOpen(false)}
               />
+            </div>
+          </div>
+        )}
+
+        {/* Buffering Overlay Modal for phone and desktop uploads */}
+        {isBuffering && images.length > 0 && (
+          <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-150">
+            <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center shadow-2xl border border-gray-200 space-y-3 animate-in zoom-in-95 duration-200">
+              <div className="relative mx-auto w-14 h-14 flex items-center justify-center">
+                <div className="absolute inset-0 rounded-2xl bg-[#D7CDFC] animate-ping opacity-35" />
+                <div className="relative w-12 h-12 rounded-2xl bg-[#D7CDFC] border border-[#C4B5FD] flex items-center justify-center shadow-xs">
+                  <Loader2 className="w-6 h-6 text-[#4D4AE8] animate-spin" />
+                </div>
+              </div>
+              <h4 className="text-base sm:text-lg font-black text-black">
+                {bufferMessage || 'Buffering Photos...'}
+              </h4>
+              <p className="text-xs text-gray-500 max-w-xs mx-auto">
+                Reading and optimizing high-resolution photos from your device...
+              </p>
+              <div className="w-44 h-1.5 bg-gray-100 rounded-full overflow-hidden mx-auto">
+                <div className="h-full bg-[#4D4AE8] rounded-full animate-pulse w-4/5" />
+              </div>
             </div>
           </div>
         )}

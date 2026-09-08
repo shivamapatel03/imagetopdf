@@ -37,21 +37,23 @@ export const AdBanner: React.FC<AdBannerProps> = ({
 
   return (
     <div
-      className={`my-6 flex flex-col items-center justify-center overflow-hidden transition-all ${className}`}
+      className={`my-6 flex flex-col items-center justify-center w-full max-w-full overflow-hidden transition-all ${className}`}
     >
       <span className="text-[10px] uppercase font-bold tracking-widest text-gray-400 mb-1">
         Advertisement
       </span>
 
       {isConfigured ? (
-        <ins
-          className="adsbygoogle block w-full text-center"
-          style={{ display: 'block' }}
-          data-ad-client={adsenseClientId}
-          data-ad-slot={adSlot}
-          data-ad-format={format}
-          data-full-width-responsive={responsive ? 'true' : 'false'}
-        />
+        <div className="w-full max-w-full overflow-hidden flex justify-center">
+          <ins
+            className="adsbygoogle block w-full max-w-full text-center overflow-hidden"
+            style={{ display: 'block', maxWidth: '100%', overflow: 'hidden' }}
+            data-ad-client={adsenseClientId}
+            data-ad-slot={adSlot}
+            data-ad-format={format}
+            data-full-width-responsive={responsive ? 'true' : 'false'}
+          />
+        </div>
       ) : (
         /* Clean, non-intrusive fallback banner when ad client is unconfigured or in development */
         <div className="w-full max-w-3xl min-h-[90px] rounded-2xl border border-dashed border-gray-200 bg-gray-50/60 flex items-center justify-center p-4 text-center">

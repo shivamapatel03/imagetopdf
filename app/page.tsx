@@ -91,7 +91,7 @@ export default function HomePage() {
   const howToSchema = getHowToSchema();
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen w-full max-w-full min-w-0 overflow-x-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -102,22 +102,22 @@ export default function HomePage() {
       />
 
       {/* 1. HERO CONVERTER SECTION */}
-      <section className="pt-4 sm:pt-6 pb-6 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto">
+      <section className="w-full max-w-4xl mx-auto pt-4 sm:pt-6 pb-6 px-4 sm:px-6 lg:px-8 text-center min-w-0">
         {/* Exact-Match Target Keyword H1 */}
-        <h1 className="text-2xl sm:text-4xl lg:text-[44px] font-black text-black tracking-tight leading-tight mb-2">
+        <h1 className="text-2xl sm:text-4xl lg:text-[44px] font-black text-black tracking-tight leading-tight mb-2 max-w-full">
           Image to PDF Online{' '}
-          <span className="bg-[#D7CDFC] px-2.5 py-0.5 rounded-xl inline-block text-black">
+          <span className="bg-[#D7CDFC] px-2.5 py-0.5 rounded-xl inline-block text-black mt-1 sm:mt-0 text-xl sm:text-4xl lg:text-[44px]">
             Free & Fast
           </span>
         </h1>
 
         {/* Keyword-Rich Subheading */}
-        <p className="text-xs sm:text-sm text-gray-500 max-w-xl mx-auto leading-relaxed mb-4">
+        <p className="text-xs sm:text-sm text-gray-500 max-w-xl mx-auto leading-relaxed mb-4 px-2">
           Convert JPG, PNG, and WEBP images to PDF online for free in seconds. Combine multiple photos into one document with custom page sizes, margins, and 100% browser privacy.
         </p>
 
         {/* DIRECT UPLOAD CONVERTER COMPONENT (Above the fold) */}
-        <div id="converter" className="scroll-mt-20">
+        <div id="converter" className="w-full max-w-full mx-auto scroll-mt-20 min-w-0">
           <ConverterApp
             toolName="Image to PDF"
             acceptedFormats={['.jpg', '.jpeg', '.png', '.webp']}
@@ -125,8 +125,8 @@ export default function HomePage() {
         </div>
 
         {/* Clean Ad Slot 1 (Below the fold) */}
-        <div className="pt-6 max-w-3xl mx-auto">
-          <AdBanner slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_BANNER} format="horizontal" />
+        <div className="pt-6 w-full max-w-3xl mx-auto overflow-hidden">
+          <AdBanner slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_BANNER} format="auto" />
         </div>
       </section>
 
@@ -416,8 +416,8 @@ export default function HomePage() {
       </section>
 
       {/* Clean Ad Slot 2 (Mid-content display banner) */}
-      <div className="max-w-4xl mx-auto px-4 my-2">
-        <AdBanner slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_BANNER} format="horizontal" />
+      <div className="w-full max-w-4xl mx-auto px-4 my-2 overflow-hidden">
+        <AdBanner slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_BANNER} format="auto" />
       </div>
 
       {/* 6. FAQ SECTION (FAQPAGE SCHEMA COMPLIANT) */}

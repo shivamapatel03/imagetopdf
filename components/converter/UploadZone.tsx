@@ -101,7 +101,7 @@ export const UploadZone: React.FC<UploadZoneProps> = ({
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full max-w-full mx-auto min-w-0">
       <input
         ref={fileInputRef}
         type="file"
@@ -116,7 +116,7 @@ export const UploadZone: React.FC<UploadZoneProps> = ({
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
         onClick={() => fileInputRef.current?.click()}
-        className={`relative cursor-pointer border-2 border-dashed rounded-3xl p-5 sm:p-7 text-center transition-all duration-200 group ${
+        className={`relative cursor-pointer border-2 border-dashed rounded-3xl p-5 sm:p-7 text-center transition-all duration-200 group w-full max-w-full mx-auto min-w-0 box-border ${
           isDragOver
             ? 'border-[#4D4AE8] bg-[#D7CDFC]/20 scale-[0.99]'
             : 'border-gray-200 hover:border-[#4D4AE8]/60 bg-white hover:bg-gray-50/50'
@@ -131,11 +131,11 @@ export const UploadZone: React.FC<UploadZoneProps> = ({
           Upload Images
         </h3>
 
-        <p className="text-xs sm:text-sm text-gray-500 max-w-sm mx-auto mb-3.5">
+        <p className="text-xs sm:text-sm text-gray-500 max-w-sm mx-auto mb-3.5 px-2">
           Drag and drop your images here, or click to browse.
         </p>
 
-        <div className="inline-flex items-center gap-2 mb-3.5">
+        <div className="inline-flex items-center justify-center gap-2 mb-3.5 max-w-full">
           <Button
             variant="primary"
             size="md"
@@ -147,7 +147,7 @@ export const UploadZone: React.FC<UploadZoneProps> = ({
         </div>
 
         {/* Supported badges */}
-        <div className="flex flex-wrap items-center justify-center gap-1.5 text-[11px] text-gray-500">
+        <div className="flex flex-wrap items-center justify-center gap-1.5 text-[11px] text-gray-500 max-w-full px-1">
           <span className="font-semibold text-gray-700">Supported:</span>
           {acceptedFormats.map((fmt) => (
             <span

@@ -40,7 +40,7 @@ export default function JpgToPdfPage() {
   ]);
 
   return (
-    <div className="pt-3 sm:pt-5 pb-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-8">
+    <div className="w-full max-w-5xl mx-auto pt-3 sm:pt-5 pb-12 px-4 sm:px-6 lg:px-8 space-y-8 min-w-0 overflow-x-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -64,7 +64,9 @@ export default function JpgToPdfPage() {
       />
 
       {/* Clean Non-Intrusive Display Ad */}
-      <AdBanner slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_BANNER} format="horizontal" />
+      <div className="w-full max-w-full overflow-hidden">
+        <AdBanner slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_BANNER} format="auto" />
+      </div>
 
       {/* How it Works */}
       <section className="space-y-6 pt-8 border-t border-gray-100">

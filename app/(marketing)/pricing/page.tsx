@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function PricingPage() {
   return (
-    <div className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto space-y-12">
+    <div className="w-full max-w-4xl mx-auto py-12 sm:py-20 px-4 sm:px-6 lg:px-8 space-y-12 min-w-0 overflow-x-hidden">
       {/* Header */}
       <div className="text-center space-y-4 max-w-2xl mx-auto">
         <Badge variant="brand">100% Free Forever</Badge>
@@ -79,7 +79,9 @@ export default function PricingPage() {
       </div>
 
       {/* Clean, Non-Intrusive Banner Ad */}
-      <AdBanner slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_BANNER} format="horizontal" />
+      <div className="w-full max-w-full overflow-hidden">
+        <AdBanner slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_BANNER} format="auto" />
+      </div>
 
       {/* How We Sustain Our Service */}
       <div className="bg-white border border-gray-200 rounded-3xl p-8 sm:p-10 space-y-4">

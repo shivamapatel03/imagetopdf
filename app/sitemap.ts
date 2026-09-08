@@ -1,12 +1,11 @@
 import { MetadataRoute } from 'next';
-import { BLOG_POSTS } from '@/lib/blog-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://imagetopdf.online';
   const currentDate = new Date();
 
   // Static marketing routes
-  const staticRoutes: MetadataRoute.Sitemap = [
+  return [
     {
       url: `${baseUrl}`,
       lastModified: currentDate,
@@ -50,12 +49,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/blog`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/privacy`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
@@ -74,14 +67,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
   ];
-
-  // Blog dynamic routes
-  const blogRoutes: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.publishDate),
-    changeFrequency: 'monthly',
-    priority: 0.7,
-  }));
-
-  return [...staticRoutes, ...blogRoutes];
 }

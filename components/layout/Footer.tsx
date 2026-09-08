@@ -77,11 +77,6 @@ export const Footer: React.FC = () => {
                 </span>
               </li>
               <li>
-                <Link href="/blog" className="text-gray-600 hover:text-black transition-colors">
-                  Blog & Guides
-                </Link>
-              </li>
-              <li>
                 <Link href="/contact" className="text-gray-600 hover:text-black transition-colors">
                   Contact & Support
                 </Link>

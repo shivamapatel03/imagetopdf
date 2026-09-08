@@ -115,10 +115,10 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className="min-h-full flex flex-col bg-white text-black overflow-x-hidden">
+      <body className="min-h-full flex flex-col bg-white text-black overflow-x-hidden w-full max-w-full">
         <AuthProvider>
           <Navbar />
-          <main className="flex-1 overflow-x-hidden">{children}</main>
+          <main className="flex-1 w-full max-w-full min-w-0 overflow-x-hidden">{children}</main>
           <Footer />
         </AuthProvider>
       </body>

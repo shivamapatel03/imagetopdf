@@ -112,9 +112,17 @@ export const UploadZone: React.FC<UploadZoneProps> = ({
           disabled={isBusy}
           isLoading={isBusy}
           onClick={() => fileInputRef.current?.click()}
-          leftIcon={<Plus className="w-4 h-4" />}
+          leftIcon={<Plus className="w-3.5 h-3.5" />}
+          className="text-xs font-semibold px-2.5 sm:px-3"
         >
-          {isBusy ? (loadingMessage || 'Buffering...') : 'Add Images'}
+          {isBusy ? (
+            loadingMessage || 'Buffering...'
+          ) : (
+            <>
+              <span>Add</span>
+              <span className="hidden sm:inline">&nbsp;Images</span>
+            </>
+          )}
         </Button>
       </div>
     );

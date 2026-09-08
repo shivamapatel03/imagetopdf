@@ -68,6 +68,10 @@ export default function ConvertStudioPage() {
       setImages(getStoredFiles());
     });
 
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+      setIsSidebarOpen(false);
+    }
+
     return () => unsubscribe();
   }, []);
 
@@ -186,31 +190,32 @@ export default function ConvertStudioPage() {
   };
 
   return (
-    <div className="min-h-[88vh] bg-[#FAFAFA] py-3 sm:py-5 px-3 sm:px-6 lg:px-8 pb-24 lg:pb-8">
-      <div className="max-w-7xl mx-auto space-y-4">
+    <div className="min-h-[88vh] bg-[#FAFAFA] py-2 sm:py-5 px-2.5 sm:px-6 lg:px-8 pb-24 lg:pb-8">
+      <div className="max-w-7xl mx-auto space-y-3 sm:space-y-4">
         {/* Top Minimal Toolbar */}
-        <div className="flex items-center justify-between bg-white px-3 sm:px-6 py-2.5 sm:py-3 rounded-2xl border border-gray-200 shadow-2xs">
-          <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center justify-between bg-white px-3 sm:px-6 py-2 sm:py-3 rounded-2xl border border-gray-200 shadow-2xs">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <Link href="/">
               <Button
                 variant="icon"
                 size="sm"
                 aria-label="Back to home"
+                className="shrink-0"
               >
                 <ArrowLeft className="w-4 h-4" />
               </Button>
             </Link>
-            <div className="flex items-center gap-2">
-              <span className="font-bold text-black text-xs sm:text-base">
-                Arrange & Convert
+            <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+              <span className="font-bold text-black text-sm sm:text-base whitespace-nowrap">
+                Arrange
               </span>
-              <span className="text-[11px] text-gray-600 bg-gray-100 px-2 py-0.5 rounded-full font-semibold">
+              <span className="text-[11px] text-[#4D4AE8] bg-[#D7CDFC]/40 px-2 py-0.5 rounded-full font-bold shrink-0">
                 {images.length} {images.length === 1 ? 'image' : 'images'}
               </span>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             {/* Add More Images Button */}
             <UploadZone
               isCompact
@@ -222,13 +227,13 @@ export default function ConvertStudioPage() {
 
             {images.length > 0 && !result && !isConverting && (
               <>
-                {/* Desktop Toggle Button for PDF Settings */}
+                {/* Desktop Toggle Button for PDF Settings: STRICTLY lg:inline-flex to avoid overflowing mobile screens */}
                 <Button
                   variant={isSidebarOpen ? 'secondary' : 'outline'}
                   size="sm"
                   onClick={() => setIsSidebarOpen((prev) => !prev)}
                   leftIcon={<SlidersHorizontal className="w-3.5 h-3.5" />}
-                  className="hidden sm:inline-flex font-bold text-xs"
+                  className="hidden lg:inline-flex font-bold text-xs"
                   title={isSidebarOpen ? 'Collapse settings sidebar' : 'Open settings sidebar'}
                 >
                   {isSidebarOpen ? 'Hide Settings' : 'PDF Settings'}
@@ -276,7 +281,7 @@ export default function ConvertStudioPage() {
           <div className="relative flex flex-col lg:flex-row items-start gap-5 sm:gap-6 animate-in fade-in duration-200">
             {/* Left Main Gallery Area (Smoothly expands when sidebar is closed) */}
             <div className="flex-1 w-full space-y-4 min-w-0 transition-all duration-300">
-              <div className="bg-white border border-gray-200 rounded-3xl p-3 sm:p-6 shadow-2xs">
+              <div className="bg-white border border-gray-200 rounded-2xl sm:rounded-3xl p-2.5 sm:p-6 shadow-2xs">
                 <ImageSorter
                   images={images}
                   settings={settings}
@@ -332,13 +337,13 @@ export default function ConvertStudioPage() {
 
         {/* Mobile Sticky Bottom Action Bar (< lg) */}
         {images.length > 0 && !result && !isConverting && (
-          <div className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-gray-200 px-4 py-3 shadow-lg flex items-center gap-3">
+          <div className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-gray-200 px-3 py-2.5 shadow-lg flex items-center gap-2">
             <Button
               variant="outline"
               size="md"
               onClick={() => setIsSidebarOpen(true)}
-              leftIcon={<SlidersHorizontal className="w-4 h-4" />}
-              className="flex-1 justify-center font-bold text-xs"
+              leftIcon={<SlidersHorizontal className="w-3.5 h-3.5" />}
+              className="flex-1 justify-center font-bold text-xs py-2.5 rounded-xl border-gray-300"
             >
               Settings ({settings.orientation})
             </Button>
@@ -348,7 +353,7 @@ export default function ConvertStudioPage() {
               onClick={handleConvert}
               isLoading={isConverting}
               rightIcon={<ArrowRight className="w-3.5 h-3.5" />}
-              className="flex-1 justify-center font-bold text-xs"
+              className="flex-1 justify-center font-bold text-xs py-2.5 rounded-xl shadow-md"
             >
               Convert ({images.length})
             </Button>

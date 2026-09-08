@@ -130,15 +130,15 @@ export const ImageSorter: React.FC<ImageSorterProps> = ({
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3 sm:space-y-4">
       {/* Header Info */}
-      <div className="flex items-center justify-between pb-3 border-b border-gray-100 flex-wrap gap-2">
+      <div className="flex items-center justify-between pb-2.5 sm:pb-3 border-b border-gray-100 flex-wrap gap-2">
         <div className="flex items-center gap-2">
-          <span className="text-sm font-bold text-gray-900">
+          <span className="text-xs sm:text-sm font-bold text-gray-900">
             {images.length} {images.length === 1 ? 'Page' : 'Pages'} Added
           </span>
-          <span className="text-xs text-gray-400 hidden sm:inline">
-            • Live PDF preview matches selected margins & fit
+          <span className="text-xs text-gray-400 hidden md:inline">
+            • Drag cards or tap arrows to arrange pages
           </span>
         </div>
         <div className="flex items-center gap-2">
@@ -146,7 +146,7 @@ export const ImageSorter: React.FC<ImageSorterProps> = ({
             variant="outline"
             size="sm"
             onClick={onClearAll}
-            className="text-red-600 hover:text-red-700 hover:bg-red-50 border-red-200 text-xs font-semibold"
+            className="text-red-600 hover:text-red-700 hover:bg-red-50 border-red-200 text-xs font-semibold py-1 px-2.5"
             leftIcon={<Trash2 className="w-3.5 h-3.5" />}
           >
             Clear All
@@ -154,8 +154,8 @@ export const ImageSorter: React.FC<ImageSorterProps> = ({
         </div>
       </div>
 
-      {/* Grid of uploaded images rendered as realistic PDF page sheets */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3.5 sm:gap-4.5">
+      {/* Grid of uploaded images rendered as realistic PDF page sheets (2 columns on mobile!) */}
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-2.5 sm:gap-4">
         {images.map((item, index) => {
           const sheet = getSheetGeometry(item);
 
@@ -166,23 +166,23 @@ export const ImageSorter: React.FC<ImageSorterProps> = ({
               onDragStart={(e) => handleDragStart(e, index)}
               onDragOver={(e) => handleDragOver(e, index)}
               onDragEnd={handleDragEnd}
-              className={`group relative bg-white border border-gray-200 rounded-2xl p-3 flex flex-col transition-all duration-200 select-none hover:border-[#4D4AE8] hover:shadow-md ${
+              className={`group relative bg-white border border-gray-200 rounded-xl sm:rounded-2xl p-2 sm:p-3 flex flex-col transition-all duration-200 select-none hover:border-[#4D4AE8] hover:shadow-md ${
                 draggedIndex === index ? 'opacity-40 scale-95 border-dashed border-[#4D4AE8]' : 'shadow-xs'
               }`}
             >
               {/* Position badge */}
-              <div className="absolute top-4 left-4 z-10 px-2 py-0.5 rounded-full bg-black/80 text-white text-[11px] font-bold flex items-center justify-center backdrop-blur-xs shadow-xs">
+              <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 px-1.5 sm:px-2 py-0.5 rounded-full bg-black/80 text-white text-[9px] sm:text-[11px] font-bold flex items-center justify-center backdrop-blur-xs shadow-xs">
                 Page {index + 1}
               </div>
 
               {/* Drag handle */}
-              <div className="absolute top-4 right-4 z-10 p-1 rounded-md bg-black/60 text-white opacity-0 group-hover:opacity-100 transition-opacity cursor-grab">
+              <div className="absolute top-3 right-3 z-10 p-1 rounded-md bg-black/60 text-white opacity-0 group-hover:opacity-100 transition-opacity cursor-grab">
                 <GripVertical className="w-3.5 h-3.5" />
               </div>
 
               {/* PDF Sheet Workbench Container */}
               <div
-                className="relative w-full aspect-[3/4] rounded-xl bg-slate-100/90 border border-slate-200/80 p-2 sm:p-2.5 flex items-center justify-center cursor-pointer mb-3 overflow-hidden group/canvas"
+                className="relative w-full aspect-[3/4] rounded-lg sm:rounded-xl bg-slate-100/90 border border-slate-200/80 p-1.5 sm:p-2.5 flex items-center justify-center cursor-pointer mb-2 sm:mb-3 overflow-hidden group/canvas"
                 onClick={() => setPreviewItem(item)}
                 title="Click to expand page preview"
               >
@@ -227,19 +227,19 @@ export const ImageSorter: React.FC<ImageSorterProps> = ({
               </div>
 
               {/* Meta info & Action toolbar */}
-              <div className="px-0.5 text-left flex-1 flex flex-col justify-between space-y-2">
+              <div className="px-0.5 text-left flex-1 flex flex-col justify-between space-y-1.5 sm:space-y-2">
                 <div>
-                  <p className="text-xs font-bold text-gray-900 truncate" title={item.name}>
+                  <p className="text-[11px] sm:text-xs font-bold text-gray-900 truncate" title={item.name}>
                     {item.name}
                   </p>
-                  <div className="text-[11px] text-gray-500 flex items-center justify-between mt-0.5">
-                    <span>{item.width} × {item.height} px</span>
+                  <div className="text-[10px] sm:text-[11px] text-gray-500 flex items-center justify-between mt-0.5">
+                    <span>{item.width} × {item.height}</span>
                     <span>{formatFileSize(item.size)}</span>
                   </div>
                 </div>
 
                 {/* Action buttons */}
-                <div className="flex items-center justify-between pt-2 border-t border-gray-100">
+                <div className="flex items-center justify-between pt-1.5 sm:pt-2 border-t border-gray-100">
                   {/* Rotate button */}
                   <button
                     type="button"
@@ -248,13 +248,13 @@ export const ImageSorter: React.FC<ImageSorterProps> = ({
                       onRotate(item.id);
                     }}
                     title="Rotate 90°"
-                    className="p-1.5 rounded-lg text-gray-600 hover:text-black hover:bg-gray-100 transition-colors cursor-pointer"
+                    className="p-1 sm:p-1.5 rounded-lg text-gray-600 hover:text-black hover:bg-gray-100 transition-colors cursor-pointer"
                   >
-                    <RotateCw className="w-3.5 h-3.5" />
+                    <RotateCw className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   </button>
 
                   {/* Move Left / Right buttons */}
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-0.5 sm:gap-1">
                     <button
                       type="button"
                       disabled={index === 0}
@@ -263,9 +263,9 @@ export const ImageSorter: React.FC<ImageSorterProps> = ({
                         moveItem(index, index - 1);
                       }}
                       title="Move left"
-                      className="p-1.5 rounded-lg text-gray-600 hover:text-black hover:bg-gray-100 disabled:opacity-25 disabled:pointer-events-none transition-colors cursor-pointer"
+                      className="p-1 sm:p-1.5 rounded-lg text-gray-600 hover:text-black hover:bg-gray-100 disabled:opacity-25 disabled:pointer-events-none transition-colors cursor-pointer"
                     >
-                      <ArrowLeft className="w-3.5 h-3.5" />
+                      <ArrowLeft className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     </button>
                     <button
                       type="button"
@@ -275,9 +275,9 @@ export const ImageSorter: React.FC<ImageSorterProps> = ({
                         moveItem(index, index + 1);
                       }}
                       title="Move right"
-                      className="p-1.5 rounded-lg text-gray-600 hover:text-black hover:bg-gray-100 disabled:opacity-25 disabled:pointer-events-none transition-colors cursor-pointer"
+                      className="p-1 sm:p-1.5 rounded-lg text-gray-600 hover:text-black hover:bg-gray-100 disabled:opacity-25 disabled:pointer-events-none transition-colors cursor-pointer"
                     >
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     </button>
                   </div>
 
@@ -289,9 +289,9 @@ export const ImageSorter: React.FC<ImageSorterProps> = ({
                       onRemove(item.id);
                     }}
                     title="Remove image"
-                    className="p-1.5 rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
+                    className="p-1 sm:p-1.5 rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
                   >
-                    <Trash2 className="w-3.5 h-3.5" />
+                    <Trash2 className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   </button>
                 </div>
               </div>

@@ -3,9 +3,17 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Shield, Zap } from 'lucide-react';
 
 export const Footer: React.FC = () => {
+  const pathname = usePathname();
+
+  // Hide footer in focused studio workspace (/convert)
+  if (pathname === '/convert' || pathname?.startsWith('/convert/')) {
+    return null;
+  }
+
   return (
     <footer className="bg-white border-t border-gray-200 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">

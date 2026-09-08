@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { PdfSettings, PageSize, PageOrientation, PageMargin, ImageFit, ImageQuality, PageLayout } from '@/types';
-import { SlidersHorizontal, FileText, Layout, Maximize2, ShieldCheck, ArrowRight } from 'lucide-react';
+import { SlidersHorizontal, FileText, Layout, Maximize2, ShieldCheck, ArrowRight, ChevronRight, X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
 export interface ConversionSettingsProps {
@@ -11,6 +11,7 @@ export interface ConversionSettingsProps {
   imagesCount?: number;
   onConvert?: () => void;
   isConverting?: boolean;
+  onClose?: () => void;
 }
 
 export const ConversionSettings: React.FC<ConversionSettingsProps> = ({
@@ -19,6 +20,7 @@ export const ConversionSettings: React.FC<ConversionSettingsProps> = ({
   imagesCount = 0,
   onConvert,
   isConverting = false,
+  onClose,
 }) => {
   return (
     <aside className="bg-white border border-gray-200 rounded-3xl p-5 sm:p-6 space-y-5 shadow-xs">
@@ -30,9 +32,21 @@ export const ConversionSettings: React.FC<ConversionSettingsProps> = ({
           </div>
           <h3 className="text-base font-bold text-black tracking-tight">PDF Settings</h3>
         </div>
-        <span className="text-[11px] font-semibold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">
-          {imagesCount} {imagesCount === 1 ? 'Page' : 'Pages'}
-        </span>
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-semibold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">
+            {imagesCount} {imagesCount === 1 ? 'Page' : 'Pages'}
+          </span>
+          {onClose && (
+            <button
+              type="button"
+              onClick={onClose}
+              className="p-1 rounded-lg text-gray-400 hover:text-black hover:bg-gray-100 transition-colors cursor-pointer"
+              title="Hide settings"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Settings Form Controls - Compact & Clean without scrolling */}

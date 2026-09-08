@@ -191,6 +191,7 @@ export const ConverterApp: React.FC<ConverterAppProps> = ({
 
             <ImageSorter
               images={images}
+              settings={settings}
               onReorder={setImages}
               onRotate={handleRotate}
               onRemove={handleRemove}

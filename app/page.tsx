@@ -259,50 +259,99 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-xs">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm">
-              <thead>
-                <tr className="border-b border-gray-200 bg-gray-50/80">
-                  <th className="py-4 px-6 font-bold text-gray-700">Feature</th>
-                  <th className="py-4 px-6 font-extrabold text-[#4D4AE8] bg-[#D7CDFC]/30">ImageToPDF.online</th>
-                  <th className="py-4 px-6 font-medium text-gray-400">Other Online Converters</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                <tr>
-                  <td className="py-4 px-6 font-semibold text-black">Subscription Cost</td>
-                  <td className="py-4 px-6 font-bold text-emerald-600 bg-[#D7CDFC]/15">100% Free Forever</td>
-                  <td className="py-4 px-6 text-gray-500">₹299/mo or $12/mo paywalls</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-6 font-semibold text-black">Data Security & Privacy</td>
-                  <td className="py-4 px-6 font-bold text-emerald-600 bg-[#D7CDFC]/15">100% Client-Side (Zero Upload)</td>
-                  <td className="py-4 px-6 text-gray-500">Uploaded to unknown cloud servers</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-6 font-semibold text-black">Watermarks</td>
-                  <td className="py-4 px-6 font-bold text-emerald-600 bg-[#D7CDFC]/15">Zero Watermarks</td>
-                  <td className="py-4 px-6 text-gray-500">Forces watermark unless you pay</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-6 font-semibold text-black">File Size Limits</td>
-                  <td className="py-4 px-6 font-bold text-emerald-600 bg-[#D7CDFC]/15">Unlimited (Device Dependent)</td>
-                  <td className="py-4 px-6 text-gray-500">Capped at 5MB – 10MB</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-6 font-semibold text-black">Custom Page Layouts</td>
-                  <td className="py-4 px-6 font-bold text-emerald-600 bg-[#D7CDFC]/15">A4, A3, Letter, Fit + Margins</td>
-                  <td className="py-4 px-6 text-gray-500">Basic or locked behind premium</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-6 font-semibold text-black">Annoying Popups</td>
-                  <td className="py-4 px-6 font-bold text-emerald-600 bg-[#D7CDFC]/15">Zero Popups or Overlays</td>
-                  <td className="py-4 px-6 text-gray-500">Intrusive fullscreen modal takeovers</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        {/* Mobile View: Clean Comparison Cards (Zero Horizontal Overflow) */}
+        <div className="md:hidden space-y-3">
+          {[
+            {
+              feature: 'Subscription Cost',
+              us: '100% Free Forever',
+              them: '₹299/mo or $12/mo paywalls',
+            },
+            {
+              feature: 'Data Security & Privacy',
+              us: '100% Client-Side (Zero Upload)',
+              them: 'Uploaded to cloud servers',
+            },
+            {
+              feature: 'Watermarks',
+              us: 'Zero Watermarks',
+              them: 'Forces watermark unless you pay',
+            },
+            {
+              feature: 'File Size Limits',
+              us: 'Unlimited (Device Dependent)',
+              them: 'Capped at 5MB – 10MB',
+            },
+            {
+              feature: 'Custom Page Layouts',
+              us: 'A4, A3, Letter, Fit + Margins',
+              them: 'Basic or locked behind premium',
+            },
+            {
+              feature: 'Annoying Popups',
+              us: 'Zero Popups or Overlays',
+              them: 'Intrusive fullscreen modal takeovers',
+            },
+          ].map((item, idx) => (
+            <div key={idx} className="bg-white border border-gray-200 rounded-2xl p-4 space-y-2.5">
+              <p className="font-bold text-sm text-black">{item.feature}</p>
+              <div className="grid grid-cols-2 gap-2 text-xs">
+                <div className="bg-[#D7CDFC]/25 border border-[#C4B5FD] p-2.5 rounded-xl space-y-1">
+                  <span className="font-extrabold text-[#4D4AE8] block text-[11px] uppercase tracking-wide">ImageToPDF</span>
+                  <span className="font-bold text-emerald-700 block leading-tight">{item.us}</span>
+                </div>
+                <div className="bg-gray-50 border border-gray-100 p-2.5 rounded-xl space-y-1 text-gray-500">
+                  <span className="font-semibold text-gray-400 block text-[11px] uppercase tracking-wide">Others</span>
+                  <span className="block leading-tight">{item.them}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop View: Full Comparison Table */}
+        <div className="hidden md:block bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-xs">
+          <table className="w-full text-left text-sm">
+            <thead>
+              <tr className="border-b border-gray-200 bg-gray-50/80">
+                <th className="py-4 px-6 font-bold text-gray-700">Feature</th>
+                <th className="py-4 px-6 font-extrabold text-[#4D4AE8] bg-[#D7CDFC]/30">ImageToPDF.online</th>
+                <th className="py-4 px-6 font-medium text-gray-400">Other Online Converters</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              <tr>
+                <td className="py-4 px-6 font-semibold text-black">Subscription Cost</td>
+                <td className="py-4 px-6 font-bold text-emerald-600 bg-[#D7CDFC]/15">100% Free Forever</td>
+                <td className="py-4 px-6 text-gray-500">₹299/mo or $12/mo paywalls</td>
+              </tr>
+              <tr>
+                <td className="py-4 px-6 font-semibold text-black">Data Security & Privacy</td>
+                <td className="py-4 px-6 font-bold text-emerald-600 bg-[#D7CDFC]/15">100% Client-Side (Zero Upload)</td>
+                <td className="py-4 px-6 text-gray-500">Uploaded to unknown cloud servers</td>
+              </tr>
+              <tr>
+                <td className="py-4 px-6 font-semibold text-black">Watermarks</td>
+                <td className="py-4 px-6 font-bold text-emerald-600 bg-[#D7CDFC]/15">Zero Watermarks</td>
+                <td className="py-4 px-6 text-gray-500">Forces watermark unless you pay</td>
+              </tr>
+              <tr>
+                <td className="py-4 px-6 font-semibold text-black">File Size Limits</td>
+                <td className="py-4 px-6 font-bold text-emerald-600 bg-[#D7CDFC]/15">Unlimited (Device Dependent)</td>
+                <td className="py-4 px-6 text-gray-500">Capped at 5MB – 10MB</td>
+              </tr>
+              <tr>
+                <td className="py-4 px-6 font-semibold text-black">Custom Page Layouts</td>
+                <td className="py-4 px-6 font-bold text-emerald-600 bg-[#D7CDFC]/15">A4, A3, Letter, Fit + Margins</td>
+                <td className="py-4 px-6 text-gray-500">Basic or locked behind premium</td>
+              </tr>
+              <tr>
+                <td className="py-4 px-6 font-semibold text-black">Annoying Popups</td>
+                <td className="py-4 px-6 font-bold text-emerald-600 bg-[#D7CDFC]/15">Zero Popups or Overlays</td>
+                <td className="py-4 px-6 text-gray-500">Intrusive fullscreen modal takeovers</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 

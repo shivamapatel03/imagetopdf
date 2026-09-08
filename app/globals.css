@@ -9,6 +9,11 @@
   --brand-accent-active: #3E3BBA;
 }
 
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 body {
   background-color: #ffffff;
   color: #000000;

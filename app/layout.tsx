@@ -94,7 +94,7 @@ export default function RootLayout({
   const appSchema = getWebApplicationSchema();
 
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en" className={`${inter.variable} h-full antialiased overflow-x-hidden`}>
       <head>
         <script
           type="application/ld+json"
@@ -115,10 +115,10 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className="min-h-full flex flex-col bg-white text-black">
+      <body className="min-h-full flex flex-col bg-white text-black overflow-x-hidden">
         <AuthProvider>
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 overflow-x-hidden">{children}</main>
           <Footer />
         </AuthProvider>
       </body>

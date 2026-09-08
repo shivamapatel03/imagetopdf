@@ -22,7 +22,8 @@ export const AdBanner: React.FC<AdBannerProps> = ({
   responsive = true,
 }) => {
   const adsenseClientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-6649084210449054';
-  const isConfigured = Boolean(adsenseClientId && slot);
+  const adSlot = slot || process.env.NEXT_PUBLIC_ADSENSE_SLOT_BANNER || '3372959670';
+  const isConfigured = Boolean(adsenseClientId && adSlot);
 
   useEffect(() => {
     if (isConfigured && typeof window !== 'undefined') {
@@ -47,7 +48,7 @@ export const AdBanner: React.FC<AdBannerProps> = ({
           className="adsbygoogle block w-full text-center"
           style={{ display: 'block' }}
           data-ad-client={adsenseClientId}
-          data-ad-slot={slot}
+          data-ad-slot={adSlot}
           data-ad-format={format}
           data-full-width-responsive={responsive ? 'true' : 'false'}
         />

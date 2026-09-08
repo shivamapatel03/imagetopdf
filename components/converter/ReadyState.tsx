@@ -150,7 +150,7 @@ export const ReadyState: React.FC<ReadyStateProps> = ({
 
       {/* Non-Intrusive Display Ad Slot (Below Download Actions) */}
       <div className="pt-4 border-t border-gray-100">
-        <AdBanner slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_STUDIO} format="horizontal" />
+        <AdBanner slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_STUDIO || '5606768599'} format="horizontal" />
       </div>
     </div>
   );

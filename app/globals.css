@@ -1,0 +1,270 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --brand-primary: #D7CDFC;
+  --brand-accent: #4D4AE8;
+  --brand-accent-hover: #3733E5;
+  --brand-accent-active: #3E3BBA;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base button-20 specification according to design guidelines */
+.button-20 {
+  appearance: button;
+  background-color: #4D4AE8;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0)
+  );
+  border: 1px solid #4D4AE8;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0.5rem 1.25rem;
+  text-align: center;
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+  user-select: none;
+  box-shadow: none;
+}
+
+.button-20:hover {
+  background-color: #3733E5;
+  border-color: #3733E5;
+}
+
+.button-20:focus {
+  outline: 2px solid rgba(77, 74, 232, 0.35);
+  outline-offset: 3px;
+}
+
+.button-20:active {
+  background-color: #3E3BBA;
+  background-image: none;
+  border-color: #3A38AE;
+}
+
+.button-20:disabled {
+  background-image: none;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+/* Reusable Variant: Secondary Button */
+.button-20-secondary {
+  appearance: button;
+  background-color: #D7CDFC;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0)
+  );
+  border: 1px solid #C4B5FD;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0.5rem 1.25rem;
+  text-align: center;
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+  user-select: none;
+  box-shadow: none;
+}
+
+.button-20-secondary:hover {
+  background-color: #c5b6fb;
+  border-color: #b3a0f9;
+}
+
+.button-20-secondary:focus {
+  outline: 2px solid rgba(215, 205, 252, 0.6);
+  outline-offset: 3px;
+}
+
+.button-20-secondary:active {
+  background-color: #b7a3fa;
+  background-image: none;
+}
+
+/* Reusable Variant: Outline Button */
+.button-20-outline {
+  appearance: button;
+  background-color: #FFFFFF;
+  background-image: none;
+  border: 1px solid #E5E7EB;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0.5rem 1.25rem;
+  text-align: center;
+  transition: all 0.15s ease-in-out;
+  user-select: none;
+  box-shadow: none;
+}
+
+.button-20-outline:hover {
+  background-color: #F9FAFB;
+  border-color: #000000;
+}
+
+.button-20-outline:focus {
+  outline: 2px solid rgba(0, 0, 0, 0.15);
+  outline-offset: 3px;
+}
+
+/* Reusable Variant: Black Button */
+.button-20-black {
+  appearance: button;
+  background-color: #000000;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0)
+  );
+  border: 1px solid #000000;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0.5rem 1.25rem;
+  text-align: center;
+  transition: all 0.15s ease-in-out;
+  user-select: none;
+  box-shadow: none;
+}
+
+.button-20-black:hover {
+  background-color: #1F2937;
+  border-color: #1F2937;
+}
+
+.button-20-black:focus {
+  outline: 2px solid rgba(0, 0, 0, 0.35);
+  outline-offset: 3px;
+}
+
+/* Reusable Variant: Danger Button */
+.button-20-danger {
+  appearance: button;
+  background-color: #EF4444;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0)
+  );
+  border: 1px solid #EF4444;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0.5rem 1.25rem;
+  text-align: center;
+  transition: all 0.15s ease-in-out;
+  user-select: none;
+  box-shadow: none;
+}
+
+.button-20-danger:hover {
+  background-color: #DC2626;
+  border-color: #DC2626;
+}
+
+/* Reusable Variant: Icon Button */
+.button-20-icon {
+  appearance: button;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  transition: all 0.15s ease-in-out;
+  user-select: none;
+}
+
+.button-20-icon:hover {
+  background-color: #F3F4F6;
+  border-color: #D1D5DB;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #E5E7EB;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D1D5DB;
+}

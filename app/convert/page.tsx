@@ -319,12 +319,12 @@ export default function ConvertStudioPage() {
           </div>
         )}
 
-        {/* Floating Side Tab to re-open sidebar when closed on Desktop */}
+        {/* Floating Side Tab to re-open sidebar when closed (Desktop & Mobile) */}
         {images.length > 0 && !result && !isConverting && !isSidebarOpen && (
           <button
             type="button"
             onClick={() => setIsSidebarOpen(true)}
-            className="hidden lg:flex fixed right-0 top-1/2 -translate-y-1/2 z-30 bg-white hover:bg-white border-2 border-r-0 border-gray-200 hover:border-[#4D4AE8] shadow-lg hover:shadow-2xl rounded-l-2xl py-3.5 px-3 flex-col items-center gap-2 text-black transition-all duration-150 group cursor-pointer"
+            className="fixed right-0 top-1/2 -translate-y-1/2 z-30 bg-white hover:bg-white border-2 border-r-0 border-gray-200 hover:border-[#4D4AE8] shadow-lg hover:shadow-2xl rounded-l-2xl py-3 sm:py-3.5 px-2.5 sm:px-3 flex flex-col items-center gap-2 text-black transition-all duration-150 group cursor-pointer"
             title="Open PDF Settings"
           >
             <SlidersHorizontal className="w-4 h-4 text-[#4D4AE8] group-hover:scale-110 transition-transform" />
@@ -337,51 +337,43 @@ export default function ConvertStudioPage() {
 
         {/* Mobile Sticky Bottom Action Bar (< lg) */}
         {images.length > 0 && !result && !isConverting && (
-          <div className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-gray-200 px-3 py-2.5 shadow-lg flex items-center gap-2">
-            <Button
-              variant="outline"
-              size="md"
-              onClick={() => setIsSidebarOpen(true)}
-              leftIcon={<SlidersHorizontal className="w-3.5 h-3.5" />}
-              className="flex-1 justify-center font-bold text-xs py-2.5 rounded-xl border-gray-300"
-            >
-              Settings ({settings.orientation})
-            </Button>
+          <div className="lg:hidden fixed bottom-0 left-0 right-0 z-30 p-4 pointer-events-none pb-6">
             <Button
               variant="primary"
-              size="md"
+              size="lg"
               onClick={handleConvert}
               isLoading={isConverting}
-              rightIcon={<ArrowRight className="w-3.5 h-3.5" />}
-              className="flex-1 justify-center font-bold text-xs py-2.5 rounded-xl shadow-md"
+              rightIcon={<ArrowRight className="w-5 h-5" />}
+              className="w-full justify-center font-bold text-sm py-4 rounded-2xl shadow-2xl pointer-events-auto"
             >
-              Convert ({images.length})
+              Convert to PDF ({images.length})
             </Button>
           </div>
         )}
 
-        {/* Mobile Slide-Up Settings Sheet / Drawer (< lg) */}
+        {/* Mobile Settings Sidebar (< lg) */}
         {images.length > 0 && !result && !isConverting && isSidebarOpen && (
-          <div className="lg:hidden fixed inset-0 z-50 flex flex-col justify-end animate-in fade-in duration-200">
-            {/* Dark Backdrop */}
+          <div className="lg:hidden fixed inset-y-0 right-0 z-50 flex pointer-events-none">
+            {/* Transparent backdrop - allows seeing left preview */}
             <div
-              className="fixed inset-0 bg-black/50 backdrop-blur-xs transition-opacity"
+              className="fixed inset-0 bg-black/5 backdrop-blur-[1px] transition-opacity pointer-events-auto"
               onClick={() => setIsSidebarOpen(false)}
             />
-            {/* Bottom Sheet Drawer */}
-            <div className="relative z-10 bg-white rounded-t-3xl max-h-[85vh] overflow-y-auto p-4 sm:p-6 shadow-2xl animate-in slide-in-from-bottom duration-300">
-              <div className="w-12 h-1.5 bg-gray-300 rounded-full mx-auto mb-3" />
-              <ConversionSettings
-                settings={settings}
-                onChange={(updated) => setSettings((prev) => ({ ...prev, ...updated }))}
-                imagesCount={images.length}
-                onConvert={() => {
-                  setIsSidebarOpen(false);
-                  handleConvert();
-                }}
-                isConverting={isConverting}
-                onClose={() => setIsSidebarOpen(false)}
-              />
+            {/* Right Side Drawer */}
+            <div className="relative z-10 w-[300px] max-w-[85vw] h-full bg-gray-50/95 backdrop-blur-xl shadow-2xl border-l border-gray-200 flex flex-col pointer-events-auto animate-in slide-in-from-right duration-300 ml-auto">
+              <div className="flex-1 overflow-y-auto p-4 sm:p-5 pb-24">
+                <ConversionSettings
+                  settings={settings}
+                  onChange={(updated) => setSettings((prev) => ({ ...prev, ...updated }))}
+                  imagesCount={images.length}
+                  onConvert={() => {
+                    setIsSidebarOpen(false);
+                    handleConvert();
+                  }}
+                  isConverting={isConverting}
+                  onClose={() => setIsSidebarOpen(false)}
+                />
+              </div>
             </div>
           </div>
         )}

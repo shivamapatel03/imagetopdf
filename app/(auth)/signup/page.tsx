@@ -70,14 +70,11 @@ export default function SignupPage() {
         {/* Header */}
         <div className="text-center space-y-2">
           <Link href="/" className="inline-block mb-3">
-            <Image
+            <img
               src="/logo.png?v=3"
               alt="ImageToPDF.online"
               width={240}
               height={38}
-              unoptimized
-              priority
-              style={{ width: 'auto' }}
               className="h-[34px] sm:h-[38px] w-auto object-contain mx-auto"
             />
           </Link>

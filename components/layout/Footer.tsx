@@ -22,13 +22,11 @@ export const Footer: React.FC = () => {
           {/* Brand Col */}
           <div className="space-y-4 md:col-span-1">
             <Link href="/" className="inline-block">
-              <Image
+              <img
                 src="/logo.png?v=3"
                 alt="ImageToPDF.online"
                 width={225}
                 height={36}
-                unoptimized
-                style={{ width: 'auto' }}
                 className="h-[32px] sm:h-[36px] w-auto object-contain"
               />
             </Link>

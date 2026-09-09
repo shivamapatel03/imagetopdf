@@ -25,14 +25,11 @@ export default function ForgotPasswordPage() {
       <div className="max-w-md w-full space-y-6 bg-white border border-gray-200 rounded-3xl p-8 sm:p-10 shadow-xs">
         <div className="text-center space-y-2">
           <Link href="/" className="inline-block mb-3">
-            <Image
+            <img
               src="/logo.png?v=3"
               alt="ImageToPDF.online"
               width={240}
               height={38}
-              unoptimized
-              priority
-              style={{ width: 'auto' }}
               className="h-[34px] sm:h-[38px] w-auto object-contain mx-auto"
             />
           </Link>

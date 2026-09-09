@@ -48,14 +48,11 @@ export const Navbar: React.FC = () => {
             href="/"
             className="flex items-center shrink-0 group focus:outline-hidden py-1"
           >
-            <Image
+            <img
               src="/logo.png?v=4"
               alt="ImageToPDF.online"
               width={215}
               height={34}
-              unoptimized
-              priority
-              style={{ width: 'auto' }}
               className="h-[26px] sm:h-[34px] w-auto object-contain transition-opacity group-hover:opacity-90"
             />
           </Link>

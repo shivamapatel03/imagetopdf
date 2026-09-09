@@ -28,6 +28,7 @@ export const Footer: React.FC = () => {
                 width={225}
                 height={36}
                 unoptimized
+                style={{ width: 'auto' }}
                 className="h-[32px] sm:h-[36px] w-auto object-contain"
               />
             </Link>

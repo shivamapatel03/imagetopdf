@@ -67,6 +67,7 @@ export default function LoginPage() {
               height={38}
               unoptimized
               priority
+              style={{ width: 'auto' }}
               className="h-[34px] sm:h-[38px] w-auto object-contain mx-auto"
             />
           </Link>

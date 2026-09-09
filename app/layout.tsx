@@ -94,28 +94,32 @@ export default function RootLayout({
   const appSchema = getWebApplicationSchema();
 
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased overflow-x-hidden`}>
+    <html lang="en" className={`${inter.variable} h-full antialiased overflow-x-hidden`} suppressHydrationWarning>
       <head>
         <script
+          id="org-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
         <script
+          id="site-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
         />
         <script
+          id="app-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
         />
-        {/* Google AdSense Official Script */}
-        <script
-          async
+        {/* Google AdSense Official Script with afterInteractive to prevent hydration mismatch */}
+        <Script
+          id="adsense-script"
+          strategy="afterInteractive"
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-6649084210449054'}`}
           crossOrigin="anonymous"
         />
       </head>
-      <body className="min-h-full flex flex-col bg-white text-black overflow-x-hidden w-full max-w-full">
+      <body className="min-h-full flex flex-col bg-white text-black overflow-x-hidden w-full max-w-full" suppressHydrationWarning>
         <AuthProvider>
           <Navbar />
           <main className="flex-1 w-full max-w-full min-w-0 overflow-x-hidden">{children}</main>

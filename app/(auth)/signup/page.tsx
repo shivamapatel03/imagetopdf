@@ -77,6 +77,7 @@ export default function SignupPage() {
               height={38}
               unoptimized
               priority
+              style={{ width: 'auto' }}
               className="h-[34px] sm:h-[38px] w-auto object-contain mx-auto"
             />
           </Link>

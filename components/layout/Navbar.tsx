@@ -55,6 +55,7 @@ export const Navbar: React.FC = () => {
               height={34}
               unoptimized
               priority
+              style={{ width: 'auto' }}
               className="h-[26px] sm:h-[34px] w-auto object-contain transition-opacity group-hover:opacity-90"
             />
           </Link>

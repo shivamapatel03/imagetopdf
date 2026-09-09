@@ -142,7 +142,7 @@ export const UploadZone: React.FC<UploadZoneProps> = ({
 
       {isBusy ? (
         /* Simple Buffer Loading State for phone/desktop photo loading */
-        <div className="relative border-2 border-[#4D4AE8]/30 bg-white rounded-3xl p-6 sm:p-9 text-center shadow-xs w-full max-w-full mx-auto min-w-0 box-border overflow-hidden animate-in fade-in duration-200">
+        <div className="relative border-2 border-[#4D4AE8]/30 bg-white rounded-none p-6 sm:p-9 text-center shadow-xs w-full max-w-full mx-auto min-w-0 box-border overflow-hidden animate-in fade-in duration-200">
           {/* Subtle ambient blur glow */}
           <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-48 h-48 bg-[#D7CDFC]/40 rounded-full blur-2xl pointer-events-none" />
 
@@ -178,7 +178,7 @@ export const UploadZone: React.FC<UploadZoneProps> = ({
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
           onClick={() => fileInputRef.current?.click()}
-          className={`relative cursor-pointer border-2 border-dashed rounded-3xl p-5 sm:p-7 text-center transition-all duration-200 group w-full max-w-full mx-auto min-w-0 box-border ${
+          className={`relative cursor-pointer border-2 border-dashed rounded-none p-5 sm:p-7 text-center transition-all duration-200 group w-full max-w-full mx-auto min-w-0 box-border ${
             isDragOver
               ? 'border-[#4D4AE8] bg-[#D7CDFC]/20 scale-[0.99]'
               : 'border-gray-200 hover:border-[#4D4AE8]/60 bg-white hover:bg-gray-50/50'

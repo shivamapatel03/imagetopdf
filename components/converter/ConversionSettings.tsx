@@ -23,7 +23,7 @@ export const ConversionSettings: React.FC<ConversionSettingsProps> = ({
   onClose,
 }) => {
   return (
-    <aside className="bg-white border border-gray-200 rounded-3xl p-5 sm:p-6 space-y-5 shadow-xs">
+    <aside className="bg-white border border-gray-200 rounded-none p-5 sm:p-6 space-y-5 shadow-xs">
       {/* Sidebar Header */}
       <div className="flex items-center justify-between pb-3 border-b border-gray-100">
         <div className="flex items-center gap-2">

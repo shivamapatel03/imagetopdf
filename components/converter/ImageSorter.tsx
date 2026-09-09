@@ -166,29 +166,29 @@ export const ImageSorter: React.FC<ImageSorterProps> = ({
               onDragStart={(e) => handleDragStart(e, index)}
               onDragOver={(e) => handleDragOver(e, index)}
               onDragEnd={handleDragEnd}
-              className={`group relative bg-white border border-gray-200 rounded-xl sm:rounded-2xl p-2 sm:p-3 flex flex-col transition-all duration-200 select-none hover:border-[#4D4AE8] hover:shadow-md ${
+              className={`group relative bg-white border border-gray-200 rounded-none p-2 sm:p-3 flex flex-col transition-all duration-200 select-none hover:border-[#4D4AE8] hover:shadow-md ${
                 draggedIndex === index ? 'opacity-40 scale-95 border-dashed border-[#4D4AE8]' : 'shadow-xs'
               }`}
             >
               {/* Position badge */}
-              <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 px-1.5 sm:px-2 py-0.5 rounded-full bg-black/80 text-white text-[9px] sm:text-[11px] font-bold flex items-center justify-center backdrop-blur-xs shadow-xs">
+              <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 px-1.5 sm:px-2 py-0.5 rounded-none bg-black/80 text-white text-[9px] sm:text-[11px] font-bold flex items-center justify-center backdrop-blur-xs shadow-xs">
                 Page {index + 1}
               </div>
 
               {/* Drag handle */}
-              <div className="absolute top-3 right-3 z-10 p-1 rounded-md bg-black/60 text-white opacity-0 group-hover:opacity-100 transition-opacity cursor-grab">
+              <div className="absolute top-3 right-3 z-10 p-1 rounded-none bg-black/60 text-white opacity-0 group-hover:opacity-100 transition-opacity cursor-grab">
                 <GripVertical className="w-3.5 h-3.5" />
               </div>
 
               {/* PDF Sheet Workbench Container */}
               <div
-                className="relative w-full aspect-[3/4] rounded-lg sm:rounded-xl bg-slate-100/90 border border-slate-200/80 p-1.5 sm:p-2.5 flex items-center justify-center cursor-pointer mb-2 sm:mb-3 overflow-hidden group/canvas"
+                className="relative w-full aspect-square rounded-none bg-slate-100/90 border border-slate-200/80 p-1.5 sm:p-2.5 flex items-center justify-center cursor-pointer mb-2 sm:mb-3 overflow-hidden group/canvas"
                 onClick={() => setPreviewItem(item)}
                 title="Click to expand page preview"
               >
                 {/* Simulated White Paper Page */}
                 <div
-                  className="relative bg-white shadow-md border border-gray-300 rounded-xs transition-all duration-300 flex items-center justify-center overflow-hidden"
+                  className="relative bg-white shadow-md border border-gray-300 rounded-none transition-all duration-300 flex items-center justify-center overflow-hidden"
                   style={{
                     aspectRatio: sheet.aspectRatio,
                     width: sheet.isLandscape ? '100%' : 'auto',
@@ -200,7 +200,7 @@ export const ImageSorter: React.FC<ImageSorterProps> = ({
                 >
                   {/* Visual Printable Margin Boundary (when margin > none) */}
                   {sheet.hasMargin && (
-                    <div className="absolute inset-0 pointer-events-none border border-dashed border-gray-300/80 m-1 rounded-2xs" />
+                    <div className="absolute inset-0 pointer-events-none border border-dashed border-gray-300/80 m-1 rounded-none" />
                   )}
 
                   {/* The Image inside Printable Area */}

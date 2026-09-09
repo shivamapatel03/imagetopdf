@@ -273,3 +273,7 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #D1D5DB;
 }
+
+[class*="button-20"].hidden {
+  display: none !important;
+}

@@ -190,10 +190,10 @@ export default function ConvertStudioPage() {
   };
 
   return (
-    <div className="min-h-[88vh] bg-[#FAFAFA] py-2 sm:py-5 px-2.5 sm:px-6 lg:px-8 pb-24 lg:pb-8">
-      <div className="max-w-7xl mx-auto space-y-3 sm:space-y-4">
+    <div className="min-h-[calc(100vh-65px)] bg-[#FAFAFA] py-2 sm:py-3 px-2 sm:px-4 lg:px-6 pb-20 lg:pb-4 flex flex-col">
+      <div className="w-full space-y-2.5 sm:space-y-3 flex-1 flex flex-col">
         {/* Top Minimal Toolbar */}
-        <div className="flex items-center justify-between bg-white px-3 sm:px-6 py-2 sm:py-3 rounded-2xl border border-gray-200 shadow-2xs">
+        <div className="flex items-center justify-between bg-white px-3 sm:px-6 py-2 sm:py-2.5 rounded-none border border-gray-200 shadow-2xs">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <Link href="/">
               <Button
@@ -226,14 +226,14 @@ export default function ConvertStudioPage() {
             />
 
             {images.length > 0 && !result && !isConverting && (
-              <>
-                {/* Desktop Toggle Button for PDF Settings: STRICTLY lg:inline-flex to avoid overflowing mobile screens */}
+              <div className="hidden lg:flex items-center gap-2">
+                {/* Desktop Toggle Button for PDF Settings */}
                 <Button
                   variant={isSidebarOpen ? 'secondary' : 'outline'}
                   size="sm"
                   onClick={() => setIsSidebarOpen((prev) => !prev)}
                   leftIcon={<SlidersHorizontal className="w-3.5 h-3.5" />}
-                  className="hidden lg:inline-flex font-bold text-xs"
+                  className="font-bold text-xs"
                   title={isSidebarOpen ? 'Collapse settings sidebar' : 'Open settings sidebar'}
                 >
                   {isSidebarOpen ? 'Hide Settings' : 'PDF Settings'}
@@ -247,12 +247,12 @@ export default function ConvertStudioPage() {
                     onClick={handleConvert}
                     isLoading={isConverting}
                     rightIcon={<ArrowRight className="w-3.5 h-3.5" />}
-                    className="hidden lg:inline-flex font-bold text-xs"
+                    className="font-bold text-xs"
                   >
                     Convert to PDF
                   </Button>
                 )}
-              </>
+              </div>
             )}
           </div>
         </div>
@@ -278,10 +278,10 @@ export default function ConvertStudioPage() {
           </div>
         ) : (
           /* 4. FOCUSED STUDIO WORKSPACE: GALLERY + COLLAPSIBLE SIDEBAR */
-          <div className="relative flex flex-col lg:flex-row items-start gap-5 sm:gap-6 animate-in fade-in duration-200">
+          <div className="relative flex-1 flex flex-col lg:flex-row items-stretch gap-3 sm:gap-4 animate-in fade-in duration-200">
             {/* Left Main Gallery Area (Smoothly expands when sidebar is closed) */}
-            <div className="flex-1 w-full space-y-4 min-w-0 transition-all duration-300">
-              <div className="bg-white border border-gray-200 rounded-2xl sm:rounded-3xl p-2.5 sm:p-6 shadow-2xs">
+            <div className="flex-1 w-full space-y-3 min-w-0 transition-all duration-300 flex flex-col">
+              <div className="bg-white border border-gray-200 rounded-none p-3 sm:p-5 shadow-2xs flex-1 flex flex-col min-h-[60vh] lg:min-h-[calc(100vh-170px)]">
                 <ImageSorter
                   images={images}
                   settings={settings}
@@ -296,7 +296,7 @@ export default function ConvertStudioPage() {
               </div>
 
               {errorMessage && (
-                <div className="p-4 rounded-2xl bg-red-50 border border-red-200 text-red-700 flex items-center gap-3 text-sm">
+                <div className="p-4 rounded-none bg-red-50 border border-red-200 text-red-700 flex items-center gap-3 text-sm">
                   <AlertCircle className="w-5 h-5 shrink-0 text-red-600" />
                   <span>{errorMessage}</span>
                 </div>
@@ -324,7 +324,7 @@ export default function ConvertStudioPage() {
           <button
             type="button"
             onClick={() => setIsSidebarOpen(true)}
-            className="fixed right-0 top-1/2 -translate-y-1/2 z-30 bg-white hover:bg-white border-2 border-r-0 border-gray-200 hover:border-[#4D4AE8] shadow-lg hover:shadow-2xl rounded-l-2xl py-3 sm:py-3.5 px-2.5 sm:px-3 flex flex-col items-center gap-2 text-black transition-all duration-150 group cursor-pointer"
+            className="fixed right-0 top-1/2 -translate-y-1/2 z-30 bg-white hover:bg-white border-2 border-r-0 border-gray-200 hover:border-[#4D4AE8] shadow-lg hover:shadow-2xl rounded-l-none py-3 sm:py-3.5 px-2.5 sm:px-3 flex flex-col items-center gap-2 text-black transition-all duration-150 group cursor-pointer"
             title="Open PDF Settings"
           >
             <SlidersHorizontal className="w-4 h-4 text-[#4D4AE8] group-hover:scale-110 transition-transform" />

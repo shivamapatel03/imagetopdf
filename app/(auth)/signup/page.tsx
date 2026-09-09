@@ -35,7 +35,7 @@ export default function SignupPage() {
           data: {
             full_name: fullName.trim(),
           },
-          emailRedirectTo: `${window.location.origin}/dashboard`,
+          emailRedirectTo: `${typeof window !== 'undefined' && window.location.hostname === 'imagetopdf.online' ? 'https://imagetopdf.online' : window.location.origin}/auth/callback?next=/dashboard`,
         },
       });
 

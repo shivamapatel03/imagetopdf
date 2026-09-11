@@ -2,10 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Shield, Zap } from 'lucide-react';
-import { InstagramIcon } from '@/components/ui/InstagramIcon';
 
 export const Footer: React.FC = () => {
   const pathname = usePathname();
@@ -36,17 +34,6 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-2 text-xs text-gray-500 pt-1">
               <Shield className="w-3.5 h-3.5 text-emerald-600" />
               <span>100% Client-Side Privacy Guaranteed</span>
-            </div>
-            <div>
-              <a
-                href="https://instagram.com/imagetopdf.online"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-pink-50 hover:bg-pink-100 border border-pink-200/80 text-xs font-bold text-gray-800 hover:text-pink-600 transition-all"
-              >
-                <InstagramIcon className="w-3.5 h-3.5 text-pink-600" />
-                <span>Help Center: @imagetopdf.online</span>
-              </a>
             </div>
           </div>
 
@@ -85,17 +72,6 @@ export const Footer: React.FC = () => {
               Help Center
             </h4>
             <ul className="space-y-2.5 text-sm">
-              <li>
-                <a
-                  href="https://instagram.com/imagetopdf.online"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-700 hover:text-pink-600 font-semibold transition-colors flex items-center gap-1.5 group"
-                >
-                  <InstagramIcon className="w-4 h-4 text-pink-600 transition-transform group-hover:scale-110" />
-                  <span>@imagetopdf.online</span>
-                </a>
-              </li>
               <li>
                 <Link href="/contact" className="text-gray-600 hover:text-black transition-colors">
                   Help Center & FAQ

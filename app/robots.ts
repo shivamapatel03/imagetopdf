@@ -16,6 +16,14 @@ export default function robots(): MetadataRoute.Robots {
           '/reset-password',
         ],
       },
+      {
+        userAgent: 'Mediapartners-Google',
+        allow: '/',
+      },
+      {
+        userAgent: 'Googlebot',
+        allow: '/',
+      },
     ],
     sitemap: 'https://imagetopdf.online/sitemap.xml',
   };

@@ -83,7 +83,6 @@ export const metadata: Metadata = {
 };
 
 import { AuthProvider } from '@/components/providers/AuthProvider';
-import { GoogleAdSense } from '@/components/ads/GoogleAdSense';
 
 export default function RootLayout({
   children,
@@ -97,6 +96,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased overflow-x-hidden`} suppressHydrationWarning>
       <head>
+        {/* Google AdSense Official Script for Site Verification & Ad Delivery */}
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-6649084210449054'}`}
+          crossOrigin="anonymous"
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-white text-black overflow-x-hidden w-full max-w-full" suppressHydrationWarning>
         <script
           id="org-schema"
           type="application/ld+json"
@@ -112,10 +119,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
         />
-      </head>
-      <body className="min-h-full flex flex-col bg-white text-black overflow-x-hidden w-full max-w-full" suppressHydrationWarning>
         <AuthProvider>
-          <GoogleAdSense />
           <Navbar />
           <main className="flex-1 w-full max-w-full min-w-0 overflow-x-hidden">{children}</main>
           <Footer />

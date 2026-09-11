@@ -99,7 +99,7 @@ export default function RootLayout({
         {/* Google AdSense Official Script for Site Verification & Ad Delivery */}
         <script
           async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-6649084210449054'}`}
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6649084210449054"
           crossOrigin="anonymous"
         />
       </head>

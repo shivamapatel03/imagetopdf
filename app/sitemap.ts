@@ -34,7 +34,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/webp-to-pdf`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.8,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/convert`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/tools`,

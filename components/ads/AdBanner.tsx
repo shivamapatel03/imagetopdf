@@ -44,7 +44,7 @@ export const AdBanner: React.FC<AdBannerProps> = ({
       </span>
 
       {isConfigured ? (
-        <div className="w-full max-w-full overflow-hidden flex justify-center">
+        <div className="w-full max-w-full overflow-hidden flex justify-center min-h-[90px]">
           <ins
             className="adsbygoogle block w-full max-w-full text-center overflow-hidden"
             style={{ display: 'block', maxWidth: '100%', overflow: 'hidden' }}
@@ -54,19 +54,7 @@ export const AdBanner: React.FC<AdBannerProps> = ({
             data-full-width-responsive={responsive ? 'true' : 'false'}
           />
         </div>
-      ) : (
-        /* Clean, non-intrusive fallback banner when ad client is unconfigured or in development */
-        <div className="w-full max-w-3xl min-h-[90px] rounded-2xl border border-dashed border-gray-200 bg-gray-50/60 flex items-center justify-center p-4 text-center">
-          <div className="space-y-1">
-            <p className="text-xs font-semibold text-gray-500">
-              Display Ad Banner Slot
-            </p>
-            <p className="text-[11px] text-gray-400">
-              Supports Google AdSense (728×90 / 320×50 responsive). Zero popups or intrusive overlays.
-            </p>
-          </div>
-        </div>
-      )}
+      ) : null}
     </div>
   );
 };

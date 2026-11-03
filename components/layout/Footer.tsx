@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
           {/* Tools Col */}
           <div>
             <h4 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-4">
-              Tools
+              Converters & Tools
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
@@ -63,39 +63,64 @@ export const Footer: React.FC = () => {
                   WEBP to PDF
                 </Link>
               </li>
+              <li>
+                <Link href="/tools" className="text-gray-600 hover:text-black transition-colors font-medium">
+                  All PDF Tools →
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Help Center Col */}
+          {/* Resources & Guides Col */}
           <div>
             <h4 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-4">
-              Help Center
+              Resources & Guides
             </h4>
             <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link href="/guides" className="text-gray-600 hover:text-black transition-colors">
+                  Knowledge Hub
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides/how-to-convert-jpg-to-pdf" className="text-gray-600 hover:text-black transition-colors">
+                  JPG to PDF Tutorial
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides/best-image-resolution-for-pdf-printing" className="text-gray-600 hover:text-black transition-colors">
+                  DPI & Print Resolution
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides/client-side-vs-cloud-pdf-conversion" className="text-gray-600 hover:text-black transition-colors">
+                  Security Architecture
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides/how-to-convert-photos-to-pdf-on-iphone-and-android" className="text-gray-600 hover:text-black transition-colors">
+                  Mobile Conversion
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Company & Legal Col */}
+          <div>
+            <h4 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-4">
+              Company & Legal
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link href="/about" className="text-gray-600 hover:text-black transition-colors font-medium">
+                  About Us
+                </Link>
+              </li>
               <li>
                 <Link href="/contact" className="text-gray-600 hover:text-black transition-colors">
-                  Help Center & FAQ
+                  Help Center & Contact
                 </Link>
               </li>
-              <li>
-                <span className="inline-flex items-center text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">
-                  100% Free Forever
-                </span>
-              </li>
-              <li>
-                <Link href="/dashboard" className="text-gray-600 hover:text-black transition-colors">
-                  User Dashboard
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal Col */}
-          <div>
-            <h4 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-4">
-              Legal
-            </h4>
-            <ul className="space-y-2.5 text-sm">
               <li>
                 <Link href="/privacy" className="text-gray-600 hover:text-black transition-colors">
                   Privacy Policy
@@ -108,12 +133,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link href="/privacy#cookies" className="text-gray-600 hover:text-black transition-colors">
-                  Cookie Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy#security" className="text-gray-600 hover:text-black transition-colors">
-                  Security Information
+                  Cookie & Ad Policy
                 </Link>
               </li>
             </ul>

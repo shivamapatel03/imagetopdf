@@ -31,6 +31,9 @@ export const Navbar: React.FC = () => {
     { href: '/image-to-pdf', label: 'Image to PDF' },
     { href: '/jpg-to-pdf', label: 'JPG to PDF' },
     { href: '/png-to-pdf', label: 'PNG to PDF' },
+    { href: '/tools', label: 'Tools' },
+    { href: '/guides', label: 'Guides' },
+    { href: '/about', label: 'About' },
   ];
 
   return (

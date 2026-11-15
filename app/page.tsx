@@ -21,6 +21,9 @@ import {
   Lock,
   Globe,
   Check,
+  BookOpen,
+  Printer,
+  Minimize2,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -635,7 +638,158 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. FAQ SECTION (FAQPAGE SCHEMA COMPLIANT) */}
+      {/* 7. KNOWLEDGE HUB & FEATURED GUIDES (ESTABLISHES TOPICAL AUTHORITY & REVIEWS) */}
+      <section className="py-16 sm:py-24 bg-white border-b border-gray-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12">
+            <div className="space-y-2">
+              <Badge variant="brand">Knowledge Hub</Badge>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-black tracking-tight">
+                Document Conversion Guides & Best Practices
+              </h2>
+              <p className="text-sm text-gray-500 max-w-xl">
+                Master print resolution, color science, mobile workflow tips, and client-side data privacy with our in-depth educational resources.
+              </p>
+            </div>
+            <Link
+              href="/guides"
+              className="text-sm font-bold text-[#4D4AE8] hover:underline flex items-center gap-1.5 mt-4 sm:mt-0 shrink-0"
+            >
+              Browse all 10 guides <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Link
+              href="/guides/how-to-convert-jpg-to-pdf"
+              className="bg-gray-50 hover:bg-[#D7CDFC]/15 border border-gray-200 hover:border-[#4D4AE8] rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all group"
+            >
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-[#4D4AE8] group-hover:scale-105 transition-transform">
+                  <FileText className="w-5 h-5" />
+                </div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#4D4AE8]">Tutorial</span>
+                <h3 className="font-bold text-base text-black group-hover:text-[#4D4AE8] transition-colors leading-snug">
+                  How to Convert JPG to PDF: Step-by-Step Print & Layout Guide
+                </h3>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  Learn how to prepare camera photos, arrange sequence, set standard A4 margins, and export at 300 DPI.
+                </p>
+              </div>
+              <span className="text-xs font-bold text-black group-hover:text-[#4D4AE8] flex items-center gap-1 pt-4 mt-4 border-t border-gray-200/60">
+                Read Article <ArrowRight className="w-3.5 h-3.5" />
+              </span>
+            </Link>
+
+            <Link
+              href="/guides/best-image-resolution-for-pdf-printing"
+              className="bg-gray-50 hover:bg-[#D7CDFC]/15 border border-gray-200 hover:border-[#4D4AE8] rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all group"
+            >
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-[#4D4AE8] group-hover:scale-105 transition-transform">
+                  <Printer className="w-5 h-5" />
+                </div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#4D4AE8]">Technical</span>
+                <h3 className="font-bold text-base text-black group-hover:text-[#4D4AE8] transition-colors leading-snug">
+                  Best Image Resolution & DPI Settings for PDF Printing
+                </h3>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  Understand 72 vs 150 vs 300 DPI benchmarks and calculate exact pixel requirements for A4 and US Letter sizes.
+                </p>
+              </div>
+              <span className="text-xs font-bold text-black group-hover:text-[#4D4AE8] flex items-center gap-1 pt-4 mt-4 border-t border-gray-200/60">
+                Read Article <ArrowRight className="w-3.5 h-3.5" />
+              </span>
+            </Link>
+
+            <Link
+              href="/guides/client-side-vs-cloud-pdf-conversion"
+              className="bg-gray-50 hover:bg-[#D7CDFC]/15 border border-gray-200 hover:border-[#4D4AE8] rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all group"
+            >
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-[#4D4AE8] group-hover:scale-105 transition-transform">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#4D4AE8]">Security</span>
+                <h3 className="font-bold text-base text-black group-hover:text-[#4D4AE8] transition-colors leading-snug">
+                  Client-Side vs Cloud Converters: Protecting Sensitive Records
+                </h3>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  Why uploading ID cards, tax receipts, and bank statements to cloud servers is dangerous, and how WebAssembly fixes it.
+                </p>
+              </div>
+              <span className="text-xs font-bold text-black group-hover:text-[#4D4AE8] flex items-center gap-1 pt-4 mt-4 border-t border-gray-200/60">
+                Read Article <ArrowRight className="w-3.5 h-3.5" />
+              </span>
+            </Link>
+
+            <Link
+              href="/guides/how-to-combine-multiple-images-into-one-pdf"
+              className="bg-gray-50 hover:bg-[#D7CDFC]/15 border border-gray-200 hover:border-[#4D4AE8] rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all group"
+            >
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-[#4D4AE8] group-hover:scale-105 transition-transform">
+                  <Layers className="w-5 h-5" />
+                </div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#4D4AE8]">Productivity</span>
+                <h3 className="font-bold text-base text-black group-hover:text-[#4D4AE8] transition-colors leading-snug">
+                  How to Combine Multiple Images Into One PDF Document
+                </h3>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  Master sequencing 20+ photo bundles, applying 90° orientation rotations, and aligning margins for reports.
+                </p>
+              </div>
+              <span className="text-xs font-bold text-black group-hover:text-[#4D4AE8] flex items-center gap-1 pt-4 mt-4 border-t border-gray-200/60">
+                Read Article <ArrowRight className="w-3.5 h-3.5" />
+              </span>
+            </Link>
+
+            <Link
+              href="/guides/how-to-convert-heic-to-pdf"
+              className="bg-gray-50 hover:bg-[#D7CDFC]/15 border border-gray-200 hover:border-[#4D4AE8] rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all group"
+            >
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-[#4D4AE8] group-hover:scale-105 transition-transform">
+                  <Smartphone className="w-5 h-5" />
+                </div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#4D4AE8]">Mobile</span>
+                <h3 className="font-bold text-base text-black group-hover:text-[#4D4AE8] transition-colors leading-snug">
+                  How to Convert iPhone HEIC Photos to PDF (Windows & Mac)
+                </h3>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  Overcome Apple HEIC format rejections on portal uploads and convert camera roll pictures with ease.
+                </p>
+              </div>
+              <span className="text-xs font-bold text-black group-hover:text-[#4D4AE8] flex items-center gap-1 pt-4 mt-4 border-t border-gray-200/60">
+                Read Article <ArrowRight className="w-3.5 h-3.5" />
+              </span>
+            </Link>
+
+            <Link
+              href="/guides/how-to-reduce-pdf-file-size-without-losing-quality"
+              className="bg-gray-50 hover:bg-[#D7CDFC]/15 border border-gray-200 hover:border-[#4D4AE8] rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all group"
+            >
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-[#4D4AE8] group-hover:scale-105 transition-transform">
+                  <Minimize2 className="w-5 h-5" />
+                </div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#4D4AE8]">Optimization</span>
+                <h3 className="font-bold text-base text-black group-hover:text-[#4D4AE8] transition-colors leading-snug">
+                  How to Reduce PDF File Size Without Losing Image Quality
+                </h3>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  Shrink high-resolution PDFs down to under 2MB or 5MB to pass portal upload limits while keeping text crisp.
+                </p>
+              </div>
+              <span className="text-xs font-bold text-black group-hover:text-[#4D4AE8] flex items-center gap-1 pt-4 mt-4 border-t border-gray-200/60">
+                Read Article <ArrowRight className="w-3.5 h-3.5" />
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. FAQ SECTION (FAQPAGE SCHEMA COMPLIANT) */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
         <div className="text-center mb-12">
           <Badge variant="brand" className="mb-3">Got Questions?</Badge>

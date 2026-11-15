@@ -5,8 +5,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: ['/', '/ads.txt'],
+        allow: '/',
         disallow: [
+          '/convert',
           '/dashboard',
           '/dashboard/*',
           '/api/*',
@@ -18,11 +19,12 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: 'Mediapartners-Google',
-        allow: ['/', '/ads.txt'],
+        allow: '/',
       },
       {
         userAgent: 'Googlebot',
-        allow: ['/', '/ads.txt'],
+        allow: '/',
+        disallow: ['/convert', '/dashboard', '/api', '/login', '/signup'],
       },
     ],
     sitemap: 'https://imagetopdf.online/sitemap.xml',

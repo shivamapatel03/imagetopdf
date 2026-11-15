@@ -13,6 +13,10 @@ import {
   FileText,
   Clock,
   Sparkles,
+  Minimize2,
+  FileArchive,
+  Palette,
+  FileCheck2,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -79,6 +83,42 @@ export const GUIDES = [
     readTime: '5 min read',
     icon: Smartphone,
   },
+  {
+    slug: 'how-to-convert-heic-to-pdf',
+    title: 'How to Convert iPhone HEIC Photos to PDF (Windows, Mac & Mobile)',
+    excerpt:
+      'Learn how to turn Apple HEIC image containers into standard PDF files on Windows and Mac without paying for codecs or software.',
+    category: 'Apple & Mobile',
+    readTime: '6 min read',
+    icon: Smartphone,
+  },
+  {
+    slug: 'how-to-reduce-pdf-file-size-without-losing-quality',
+    title: 'How to Reduce PDF File Size Without Losing Image Quality',
+    excerpt:
+      'Proven techniques to shrink multi-page image PDFs to meet 2MB and 5MB portal submission limits while preserving razor-sharp text and signatures.',
+    category: 'Optimization Guide',
+    readTime: '7 min read',
+    icon: Minimize2,
+  },
+  {
+    slug: 'pdf-a-archival-standards-explained',
+    title: 'PDF/A Explained: Archival Standards for Long-Term Document Preservation',
+    excerpt:
+      'Understand what PDF/A means, why court systems and banks mandate it, and the difference between PDF/A-1, PDF/A-2, and conformance levels.',
+    category: 'Standards & Archival',
+    readTime: '8 min read',
+    icon: FileCheck2,
+  },
+  {
+    slug: 'color-profiles-rgb-vs-cmyk-in-pdf',
+    title: 'Color Profiles in PDF: Understanding RGB vs CMYK for Print & Screen',
+    excerpt:
+      'Discover why screen photos look different when printed on paper. Master additive vs subtractive color gamuts for prepress accuracy.',
+    category: 'Prepress & Color',
+    readTime: '7 min read',
+    icon: Palette,
+  },
 ];
 
 export default function GuidesHubPage() {
@@ -132,7 +172,7 @@ export default function GuidesHubPage() {
             All Tutorials & Articles
           </h3>
           <span className="text-xs font-semibold text-gray-500">
-            6 Comprehensive Articles
+            10 Comprehensive Articles
           </span>
         </div>
 

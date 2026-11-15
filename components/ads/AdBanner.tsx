@@ -23,7 +23,8 @@ export const AdBanner: React.FC<AdBannerProps> = ({
 }) => {
   const adsenseClientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-6649084210449054';
   const adSlot = slot || process.env.NEXT_PUBLIC_ADSENSE_SLOT_BANNER || '3372959670';
-  const isConfigured = Boolean(adsenseClientId && adSlot);
+  const adsEnabled = process.env.NEXT_PUBLIC_ENABLE_ADS === 'true';
+  const isConfigured = Boolean(adsEnabled && adsenseClientId && adSlot);
 
   useEffect(() => {
     if (isConfigured && typeof window !== 'undefined') {
@@ -34,6 +35,10 @@ export const AdBanner: React.FC<AdBannerProps> = ({
       }
     }
   }, [isConfigured]);
+
+  if (!isConfigured) {
+    return null;
+  }
 
   return (
     <div

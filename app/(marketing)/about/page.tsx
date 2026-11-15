@@ -14,6 +14,9 @@ import {
   Globe,
   Code,
   FileCheck2,
+  Calendar,
+  Layers,
+  Award,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -64,6 +67,61 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Team & Publisher Identity (E-E-A-T) */}
+      <section className="bg-white border border-gray-200 rounded-3xl p-8 sm:p-12 space-y-8">
+        <div className="space-y-2">
+          <Badge variant="brand">Publisher & Team</Badge>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-black tracking-tight">
+            Who Builds and Maintains ImageToPDF.online
+          </h2>
+          <p className="text-sm text-gray-500">
+            Transparent engineering leadership committed to web standards and user privacy.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="p-6 rounded-2xl bg-gray-50 border border-gray-200 space-y-3">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-[#D7CDFC] border border-[#C4B5FD] flex items-center justify-center font-bold text-lg text-[#4D4AE8]">
+                SP
+              </div>
+              <div>
+                <h3 className="font-bold text-black text-base">Shivam Patel</h3>
+                <p className="text-xs text-gray-500">Founder & Lead Software Engineer</p>
+              </div>
+            </div>
+            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+              Full-stack software engineer specializing in browser-based computing, WebAssembly, and client-side document processing pipelines. Passionate about eliminating unnecessary cloud data retention and advocating for user privacy rights.
+            </p>
+            <div className="pt-1 text-xs text-[#4D4AE8] font-medium">
+              <span>Contact: </span>
+              <a href="mailto:support@imagetopdf.online" className="underline font-bold">
+                support@imagetopdf.online
+              </a>
+            </div>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-gray-50 border border-gray-200 space-y-3">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center font-bold text-lg text-emerald-700">
+                QA
+              </div>
+              <div>
+                <h3 className="font-bold text-black text-base">Document Standards Review</h3>
+                <p className="text-xs text-gray-500">Standards & Quality Assurance</p>
+              </div>
+            </div>
+            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+              Responsible for testing ISO 32000-1 PDF syntax compliance, 300 DPI print accuracy, margin precision, and cross-browser rendering reliability across Apple Safari, Google Chrome, Mozilla Firefox, and Microsoft Edge.
+            </p>
+            <div className="pt-1 text-xs text-emerald-700 font-medium">
+              <span>Audited against: </span>
+              <strong>ISO 32000-1 & W3C HTML5 standards</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Technical Architecture Deep Dive */}
       <section className="space-y-8">
         <div className="text-center max-w-2xl mx-auto space-y-2">
@@ -109,22 +167,52 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Ongoing Structural Maintenance & Quality Standards */}
-      <section className="bg-white border border-gray-200 rounded-3xl p-8 sm:p-12 space-y-6">
-        <h2 className="text-2xl font-bold text-black tracking-tight">
-          Curation, Maintenance & Editorial Standards
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
-          <div className="space-y-3">
-            <h4 className="font-bold text-gray-900 text-base">Continuous Browser Compatibility Testing</h4>
-            <p>
-              We routinely test and benchmark our conversion algorithms across modern web engines, including Google Chrome, Apple Safari (iOS and macOS), Mozilla Firefox, Microsoft Edge, and Samsung Internet to ensure reliable performance on both desktop workstations and mobile smartphones.
+      {/* Ongoing Curation & Maintenance Changelog */}
+      <section className="bg-gray-50 border border-gray-200 rounded-3xl p-8 sm:p-12 space-y-6">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-2xl bg-[#D7CDFC] border border-[#C4B5FD] flex items-center justify-center">
+            <Calendar className="w-5 h-5 text-[#4D4AE8]" />
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold text-black tracking-tight">
+              Ongoing Curation & Platform Maintenance
+            </h2>
+            <p className="text-xs text-gray-500">Live development log and version improvements</p>
+          </div>
+        </div>
+
+        <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+          ImageToPDF.online is actively curated and maintained. We continually update our conversion algorithms, expand our educational documentation, and benchmark against the latest browser releases.
+        </p>
+
+        <div className="space-y-4 not-prose">
+          <div className="bg-white border border-gray-200 rounded-2xl p-5 space-y-1.5">
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-sm text-black">Version 2.4 — Knowledge Hub Expansion & Canvas Memory Optimization</span>
+              <span className="text-xs text-gray-400 font-mono">November 2026</span>
+            </div>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              Added 10 comprehensive technical guides covering DPI calculation, HEIC conversion, PDF/A standards, and RGB vs CMYK color spaces. Optimized canvas garbage collection for 30+ photo batches on low-RAM mobile devices.
             </p>
           </div>
-          <div className="space-y-3">
-            <h4 className="font-bold text-gray-900 text-base">Accuracy and Educational Guidance</h4>
-            <p>
-              All educational articles, troubleshooting tutorials, and technical guidelines published in our Knowledge Hub are authored and reviewed by web engineers and document processing specialists, providing factual, actionable instructions.
+
+          <div className="bg-white border border-gray-200 rounded-2xl p-5 space-y-1.5">
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-sm text-black">Version 2.3 — Interactive Visual Thumbnail Board</span>
+              <span className="text-xs text-gray-400 font-mono">October 2026</span>
+            </div>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              Shipped drag-and-drop reordering with live visual thumbnail cards and dedicated 90° clockwise rotation tools for sideways mobile camera captures.
+            </p>
+          </div>
+
+          <div className="bg-white border border-gray-200 rounded-2xl p-5 space-y-1.5">
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-sm text-black">Version 2.2 — ISO 216 Page Standards & Custom Margins</span>
+              <span className="text-xs text-gray-400 font-mono">September 2026</span>
+            </div>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              Implemented strict ISO 216 dimension standards (A4, A3) alongside North American US Letter and Legal formats with configurable print margin borders.
             </p>
           </div>
         </div>
@@ -171,4 +259,3 @@ export default function AboutPage() {
     </div>
   );
 }
-

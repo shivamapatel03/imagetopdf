@@ -87,6 +87,9 @@ export const metadata: Metadata = {
   verification: {
     google: 't2KGnXYnTNGoMDiZ3CK3bigwEoHTU_wjMQYENqWw8BU',
   },
+  other: {
+    'google-adsense-account': 'ca-pub-6649084210449054',
+  },
   icons: {
     icon: [
       { url: '/icon.png?v=4', type: 'image/png' },
@@ -119,6 +122,7 @@ export default function RootLayout({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6649084210449054"
           crossOrigin="anonymous"
         />
+        <meta name="google-adsense-account" content="ca-pub-6649084210449054" />
       </head>
       <body className="min-h-full flex flex-col bg-white text-black overflow-x-hidden w-full max-w-full" suppressHydrationWarning>
         <script
